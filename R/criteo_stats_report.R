@@ -17,7 +17,7 @@ criteo_stats_report <- function(startDate = Sys.Date() - 1,
   #   dimensions: How slice your data? By default by Day and CampaignId. You can set number of dimensions between one and three.
   #                         Possible values: CampaignId, AdvertiserId, Category, Hour, Day, Week, Month, Year.
   #   metrics: Which columns will be displayed. By default Audience, Displays, Clicks, ECpc, ECpm, AdvertiserCost.
-  #                         Possible values: #TODO
+  #                         Possible values: # TODO Fill possible values.
   #   tok: Criteo token. Default is call and refresh token automatically.
   #   reportType: The type of report to generate. By default, CampaignPerformance
   #                         Possible values: CampaignPerformance, FacebookDPA, TransactionID.
@@ -55,8 +55,8 @@ criteo_stats_report <- function(startDate = Sys.Date() - 1,
 
   stats <- readr::read_delim(httr::content(data, as = "text", encoding = 'UTF-8'), delim = ';')
   if (prettify) {
-    stats <- stats %>%
-      transmute(advertiser = `Advertiser Name`,
+    stats <-dplyr::transmute(
+                stats, advertiser = `Advertiser Name`,
                 date = lubridate::mdy(Day),
                 campaign_id = `Campaign ID`,
                 campaign = `Campaign Name`,
@@ -66,7 +66,10 @@ criteo_stats_report <- function(startDate = Sys.Date() - 1,
                 costs = round(Cost, 2),
                 cpc = round(CPC, 2),
                 cpm = round(ECPM, 2),
-                currency = Currency)
+                currency = Currency
+                )
     }
   return(stats)
 }
+# TODO audience, impressions, clicks, campaignID -- numeric
+

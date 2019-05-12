@@ -29,3 +29,5 @@ criteo_auth <- function(tok = "criteo_token.RDS"){
 
   return(paste("Bearer", token$token))
 }
+
+# TODO  FIRST! подумать, как сделать авторизацию без файла, или компиляцию пакета без ошибки https://stackoverflow.com/questions/28218508/r-check-if-r-object-exists-before-creating-it
