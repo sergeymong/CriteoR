@@ -17,7 +17,7 @@ criteo_access_token <- function(tok = "criteo_token.RDS"){
   #' @return String "Bearer <access token>" for using in other Criteo queries.
 
   if (!file.exists("criteo_token.RDS")){
-    if(tolower(readline("File with Criteo Auth data not found. Create? (y/n): ")) == tolower('Y')){
+    if (tolower(readline("File with Criteo Auth data not found. Create? (y/n): ")) == tolower("Y")){
       client_id <- readline("Input your Criteo Client ID: ")
       client_secret <- readline("Input your Criteo Client Secret: ")
       token <- criteo_auth(client_id = client_id, client_secret = client_secret)

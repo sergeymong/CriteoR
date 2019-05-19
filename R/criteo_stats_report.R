@@ -109,7 +109,7 @@ criteo_stats_report <- function(start_date = Sys.Date() - 1,
   #' # If you want get stat for exact period
   #' criteo_stats_report(start_date = "2019-01-01", end_date = "2019-05-01")
 
-  if(typeof(dimensions) != "list")
+  if (typeof(dimensions) != "list")
     dimensions <- as.list(dimensions)
 
   header <- httr::add_headers(Authorization = tok)
@@ -124,12 +124,12 @@ criteo_stats_report <- function(start_date = Sys.Date() - 1,
                Currency = currency)
 
   data <- httr::POST("https://api.criteo.com/marketing/v1/statistics", header, body = body, encode = "json")
-  if(data$status_code == 400){
+  if (data$status_code == 400){
     cat(" Oops, error! Criteo says: \n", httr::content(data)$message)
   } else {
     stats <- readr::read_delim(httr::content(data, as = "text", encoding = "UTF-8"), delim = ";")
 
-    if (prettify && (all(unlist(dimensions) %in% c("Day", "CampaignId"))) && report_type == 'CampaignPerformance') {
+    if (prettify && (all(unlist(dimensions) %in% c("Day", "CampaignId"))) && report_type == "CampaignPerformance") {
     stats <- dplyr::transmute(
                 stats, advertiser = `Advertiser Name`,
                 date = lubridate::mdy(Day),

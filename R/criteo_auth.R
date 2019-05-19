@@ -38,8 +38,8 @@ criteo_auth <- function(client_id = NULL,
       cat("Invalid authorization! Criteo returned '", token, "'.\n", sep = "")
   } else {
     token <- list(token = token, client_id = client_id, client_secret = client_secret, create_time = Sys.time())
-    save(token, file = "criteo_token.RDS")
     if (!file.exists("criteo_token.RDS")){
+      save(token, file = "criteo_token.RDS")
       cat("Authentication data was saved into project folder successfully!\n")
     } else {
       cat("Access token successfully refreshed!\n")
