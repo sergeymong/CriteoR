@@ -48,7 +48,7 @@ If you want more data:
 criteo_stats_report(start_date = "2017-01-01", 
                     end_date = Sys.Date() - 1,
                     metrics = list("Audience", "Displays", "Clicks", 
-                    "ECpc", "ECpm", "AdvertiserCost", 
-                    "SalesPc", "RevenueGeneratedPc", "AverageCart"),
+                                   "ECpc", "ECpm", "AdvertiserCost", 
+                                   "SalesPc", "RevenueGeneratedPc", "AverageCart"),
                     prettify = F)
 ```
