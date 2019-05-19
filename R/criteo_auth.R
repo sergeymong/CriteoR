@@ -44,6 +44,7 @@ criteo_auth <- function(client_id = NULL,
       save(token, file = "criteo_token.RDS")
       cat("Authentication data was saved into project folder successfully!\n")
     } else {
+      save(token, file = "criteo_token.RDS")
       cat("Access token successfully refreshed!\n")
     }
 
