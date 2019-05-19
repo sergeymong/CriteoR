@@ -47,7 +47,7 @@ criteo_budget_info <- function(tok = criteo_access_token(),
   #  Then we transpose matrix and convert it to tibble (data frame of dplyr).
   budget <- dplyr::as_tibble(t(sapply(budget, function(x) unlist(x))))
 
-  if (any(columns != "all")){
+  if (any(return_columns != "all")){
     budget <- dplyr::select(budget, return_columns)
   }
   return(budget)
