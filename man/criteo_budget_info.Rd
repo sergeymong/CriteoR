@@ -5,8 +5,11 @@
 \title{Getting information about Criteo budgets}
 \usage{
 criteo_budget_info(tok = criteo_access_token(),
-  return_columns = c("budgetName", "type", "totalAmount",
-  "remainingBudget"), active_budgets_only = T)
+                   return_columns = c("budgetName",
+                                      "type",
+                                      "totalAmount",
+                                      "remainingBudget"),
+                   active_budgets_only = T)
 }
 \arguments{
 \item{tok}{Criteo access token. By default is call and refresh token automatically.}

@@ -4,13 +4,22 @@
 \alias{criteo_stats_report}
 \title{Get statistics about Criteo Dynamic Remarketing}
 \usage{
-criteo_stats_report(start_date = Sys.Date() - 1, end_date = Sys.Date()
-  - 1, dimensions = list("Day", "CampaignId"),
-  metrics = list("Audience", "Displays", "Clicks", "ECpc", "ECpm",
-  "AdvertiserCost"), tok = criteo_access_token(),
-  report_type = "CampaignPerformance", ignore_x_device = F,
-  advertiser_ids = criteo_advertisers(), currency = "RUB",
-  prettify = T)
+criteo_stats_report(start_date = Sys.Date() - 1,
+                    end_date = Sys.Date() - 1,
+                    dimensions = list("Day",
+                                      "CampaignId"),
+                    metrics = list("Audience",
+                                   "Displays",
+                                   "Clicks",
+                                   "ECpc",
+                                   "ECpm",
+                                   "AdvertiserCost"),
+                    tok = criteo_access_token(),
+                    report_type = "CampaignPerformance",
+                    ignore_x_device = F,
+                    advertiser_ids = criteo_advertisers(),
+                    currency = "RUB",
+                    prettify = T)
 }
 \arguments{
 \item{start_date}{Start date of your report. By default, yesterday.}

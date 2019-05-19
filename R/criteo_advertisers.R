@@ -1,19 +1,20 @@
+#' Getting advertisers in Criteo account
+#'
+#' @param tok Criteo access token. By default is call and refresh token automatically.
+#' @param to_query_output If TRUE, return comma separated advertiser id's;
+#'                                                     if not, return advertisers data frame.
+#' @export
+#' @return By default, string of all Criteo advertisers (for using in other functions).
+#' @examples
+#' # Base variant
+#' criteo_advertisers()
+#'
+#' # If you want use token from environment
+#' criteo_advertisers(tok = token)
+#'
+#' # If you want to get data frame
+#' criteo_advertisers(to_query_output = F)
 criteo_advertisers <- function(tok = criteo_access_token(), to_query_output = T){
-  #' Getting advertisers in Criteo account
-  #'
-  #' @param tok Criteo access token. By default is call and refresh token automatically.
-  #' @param to_query_output If TRUE, return comma separated advertiser id's;
-  #'                                                     if not, return advertisers data frame.
-  #' @return By default, string of all Criteo advertisers (for using in other functions).
-  #' @examples
-  #' # Base variant
-  #' criteo_advertisers()
-  #'
-  #' # If you want use token from environment
-  #' criteo_advertisers(tok = token)
-  #'
-  #' # If you want to get data frame
-  #' criteo_advertisers(to_query_output = F)
 
   header <- httr::add_headers(Authorization = tok)
   data <- httr::GET("https://api.criteo.com/marketing/v1/portfolio", header)

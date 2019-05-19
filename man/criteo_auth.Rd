@@ -2,9 +2,11 @@
 % Please edit documentation in R/criteo_auth.R
 \name{criteo_auth}
 \alias{criteo_auth}
-\title{Criteo REST API Auth}
+\title{Criteo REST API Access token}
 \usage{
-criteo_auth(client_id = NULL, client_secret = NULL, save_to_env = F)
+criteo_auth(client_id = NULL,
+            client_secret = NULL,
+            save_to_env = F)
 }
 \arguments{
 \item{client_id}{Login (Client ID) of Criteo REST API user.}

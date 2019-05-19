@@ -1,38 +1,39 @@
+#' Getting information about Criteo budgets
+#'
+#' @param tok Criteo access token. By default is call and refresh token automatically.
+#' @param return_columns vector of column names, by default:
+#' \itemize{
+#'   \item budgetName
+#'   \item type
+#'   \item totalAmount
+#'   \item remainingBudget
+#' }
+#' If you want see all columns, use "all" as parameter. All columns:
+#' \itemize{
+#'   \item advertiserId
+#'   \item budgetId
+#'   \item budgetName
+#'   \item type
+#'   \item totalAmount
+#'   \item remainingBudget
+#'   \item remainingBudgetUpdated
+#'   \item active
+#' }
+#' @param active_budgets_only by default, TRUE.
+#' @export
+#' @return By default, data frame with active budgets and only 4 columns (this is not all columns).
+#' @examples
+#' # Get all active budgets
+#' criteo_budget_info()
+#'
+#' # Get all exist budgets
+#' criteo_budget_info(active_budgets_only = F)
+#'
+#' Get all info about all budgets
+#' criteo_budget_info(return_columns = "all", active_budgets_only = F)
 criteo_budget_info <- function(tok = criteo_access_token(),
                                return_columns = c("budgetName", "type", "totalAmount", "remainingBudget"),
                                active_budgets_only = T){
-  #'  Getting information about Criteo budgets
-  #'
-  #' @param tok Criteo access token. By default is call and refresh token automatically.
-  #' @param return_columns vector of column names, by default:
-  #' \itemize{
-  #'   \item budgetName
-  #'   \item type
-  #'   \item totalAmount
-  #'   \item remainingBudget
-  #' }
-  #' If you want see all columns, use "all" as parameter. All columns:
-  #' \itemize{
-  #'   \item advertiserId
-  #'   \item budgetId
-  #'   \item budgetName
-  #'   \item type
-  #'   \item totalAmount
-  #'   \item remainingBudget
-  #'   \item remainingBudgetUpdated
-  #'   \item active
-  #' }
-  #' @param active_budgets_only by default, TRUE.
-  #' @return By default, data frame with active budgets and only 4 columns (this is not all columns).
-  #' @examples
-  #' # Get all active budgets
-  #' criteo_budget_info()
-  #'
-  #' # Get all exist budgets
-  #' criteo_budget_info(active_budgets_only = F)
-  #'
-  #' Get all info about all budgets
-  #' criteo_budget_info(return_columns = "all", active_budgets_only = F)
 
   header <- httr::add_headers(Authorization = tok)
   query <- list(onlyActiveCampaigns = active_budgets_only)

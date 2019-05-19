@@ -1,13 +1,13 @@
+#' Getting information about Criteo campaigns
+#
+#' @param tok Criteo access token. Default is call and refresh token automatically.
+#' @param active_campaigns_only: By default TRUE.
+#' @export
+#' @return By default, data frame with active companies.
+#' @examples
+#' # If you want to get all campaigns in account
+#' criteo_campaigns(active_campaigns_only = F)
 criteo_campaigns <- function(tok = criteo_access_token(), active_campaigns_only = T){
-
-  #'  Getting information about Criteo campaigns
-  #
-  #' @param tok Criteo access token. Default is call and refresh token automatically.
-  #' @param active_campaigns_only: By default TRUE.
-  #' @return By default, data frame with active companies.
-  #' @examples
-  #' # If you want to get all campaigns in account
-  #' criteo_campaigns(active_campaigns_only = F)
 
   status <- ifelse(active_campaigns_only, "Running", "")
   query <- list(campaignStatus = status)
