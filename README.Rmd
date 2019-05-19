@@ -1,4 +1,6 @@
 ---
+title: CriteoR to get data via new REST API
+author: https://www.facebook.com/mongsergey
 output: github_document
 ---
 
