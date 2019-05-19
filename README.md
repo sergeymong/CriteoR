@@ -1,3 +1,6 @@
+CriteoR to get data via REST API
+================
+facebook.com/mongsergey
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
