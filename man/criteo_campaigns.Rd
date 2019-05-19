@@ -5,7 +5,7 @@
 \title{Getting information about Criteo campaigns}
 \usage{
 criteo_campaigns(tok = criteo_access_token(),
-                 active_campaigns_only = T)
+  active_campaigns_only = T)
 }
 \arguments{
 \item{tok}{Criteo access token. Default is call and refresh token automatically.}

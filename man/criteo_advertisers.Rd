@@ -4,8 +4,7 @@
 \alias{criteo_advertisers}
 \title{Getting advertisers in Criteo account}
 \usage{
-criteo_advertisers(tok = criteo_access_token(),
-                   to_query_output = T)
+criteo_advertisers(tok = criteo_access_token(), to_query_output = T)
 }
 \arguments{
 \item{tok}{Criteo access token. By default is call and refresh token automatically.}

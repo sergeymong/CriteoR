@@ -2,3 +2,4 @@ Meta
 doc
 inst/doc
 .Rproj.user
+criteo_token.RDS
